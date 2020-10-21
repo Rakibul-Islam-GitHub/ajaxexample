@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script>
+    <title>Rakibul</title>
+</head>
+<body>
+    <h1 id="test">Ajax example</h1>
+
+    
+
+    <form action="">
+        <input type="text" value="">
+        <input type="button" value="submit">
+    </form>
+    <a href="new.php">php file</a>
+
+    <script>
+        $( document ).ready(function() {
+    console.log( "ready!" );
+    //alert('worked');
+    $.ajax({
+   url: "new.php",
+   type: "POST",
+   //dataType: 'JSON',
+   
+   data: {
+     
+     'name': 'Rakibul',
+     
+
+   },
+
+   success: function(response) {
+    var myObj = JSON.parse(response);    // datatype:json na dile parse korte hobe
+     //alert(response.name);
+     alert(myObj.name);
+     document.getElementById("test").innerHTML ="Name :"+ myObj.name;
+   },
+   error: function (request, status, error) {
+   console.log(request.responseText);   //it will show error in webpage if any
+   }
+
+   });
+
+
+});
+       
+    </script>
+</body>
+</html>
